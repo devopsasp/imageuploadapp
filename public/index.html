@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<style>
+    input{
+        font-size: 25px;
+        color:blue;
+
+    }
+    label{
+        font-size:25px;
+        color:blue;
+    }
+    body{
+        background-color: azure;
+    }
+    img{
+        width:400px;
+        height:400px;
+    }
+</style>
+    </head>
+    <body>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+           <label> Select File</label><br/>
+            <input type="file" name="profilePic" id="imgup"/>
+            <input type="submit" value="upload"/>
+        </form>
+        <img id="myimg" src="#" alt="profilepic"/>
+        <script>
+imgup.onchange = evt => {
+  const [file] = imgup.files
+  if (file) {
+    document.getElementById('myimg').src = URL.createObjectURL(file)
+  }
+}
+            </script>
+    </body>
+</html>
